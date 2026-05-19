@@ -1,0 +1,62 @@
+voicecare:
+  company_name: "VoiceCare AI"
+  product: "Joy - AI Revenue Cycle Agent"
+  website: "https://voicecare.ai"
+  
+  value_props:
+    - "Automates prior authorization and benefit verification calls with insurance payers"
+    - "Handles 5x claims volume with 0% staff increase"
+    - "Saves 500 hours per 1,000 payer phone calls"
+    - "Reduces claim-to-reimbursement time by up to 70%"
+    - "30% better quality by eliminating human errors that cause denials"
+    - "HIPAA compliant and SOC 2 Type II attested"
+    - "Integrates natively with existing EHR systems"
+    - "AI-driven fax processing and payer portal navigation"
+
+  icp:
+    titles:
+      - "Practice Manager"
+      - "Revenue Cycle Manager"
+      - "Revenue Cycle Director"
+      - "RCM Owner"
+      - "Billing Manager"
+      - "Operations Manager"
+      - "Administrator"
+    company_types:
+      - "Multi-physician practice"
+      - "Specialty clinic"
+      - "Hospital system"
+      - "Ambulatory surgery center"
+      - "Orthopedic clinic"
+      - "Neurology practice"
+      - "Pediatric clinic"
+
+outreach:
+  max_daily_leads: 5
+  run_time: "09:00"
+  timezone: "America/Los_Angeles"
+  review_before_send: true
+  
+  message_constraints:
+    max_length: 300
+    tone: "professional but conversational"
+    must_include_hook: true
+    must_reference_activity: true
+    cta_style: "soft ask"
+    
+  follow_up_cadence:
+    - day: 3
+      type: "value_add"
+    - day: 7
+      type: "social_proof"
+    - day: 14
+      type: "breakup"
+
+apis:
+  proxycurl:
+    base_url: "https://nubela.co/proxycurl/api"
+    timeout: 30
+  
+  gemini:
+    base_url: "https://generativelanguage.googleapis.com"
+    model: "gemini-3.1-flash-lite"

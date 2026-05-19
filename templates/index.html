@@ -1,0 +1,273 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Stats Summary -->
+<div class="stats-grid">
+    <div class="stat-card">
+        <h3>Total Generated</h3>
+        <div class="stat-value">{{ summary.total }}</div>
+    </div>
+    <div class="stat-card pending">
+        <h3>Pending Review</h3>
+        <div class="stat-value">{{ summary.pending }}</div>
+    </div>
+    <div class="stat-card approved">
+        <h3>Approved</h3>
+        <div class="stat-value">{{ summary.approved }}</div>
+    </div>
+    <div class="stat-card sent">
+        <h3>Sent</h3>
+        <div class="stat-value">{{ summary.sent }}</div>
+    </div>
+</div>
+
+<!-- Data Sources Status -->
+<div class="action-bar" style="margin-bottom: 1rem; padding: 1rem;">
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+        <span style="font-size: 0.875rem; font-weight: 600; color: var(--gray-600);">Data Sources:</span>
+        {% if gemini_ready %}
+        <span class="badge badge-success">● Gemini Search</span>
+        {% else %}
+        <span class="badge badge-warning">● Gemini Offline</span>
+        {% endif %}
+        
+        {% if linkedin_scraper_ready %}
+        <span class="badge badge-success">● LinkedIn Scraper</span>
+        {% elif proxycurl_ready %}
+        <span class="badge badge-success">● Proxycurl API</span>
+        {% else %}
+        <span class="badge badge-warning">● Mock Data</span>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Action Bar -->
+<div class="action-bar">
+    <div>
+        <h2>🎯 Generate Outreach</h2>
+        <p>Research prospects and generate personalized messages</p>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="runPipeline()">
+            <span>⚡</span> Run with Demo Data
+        </button>
+        {% if summary.total > 0 %}
+        <a href="/api/download/csv" class="btn btn-secondary">📥 CSV</a>
+        <a href="/api/download/json" class="btn btn-secondary">📥 JSON</a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Real LinkedIn URLs Input -->
+<div class="action-bar" style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe);">
+    <div style="flex: 1;">
+        <h2>🔗 Real LinkedIn Mode</h2>
+        <p>Paste LinkedIn profile URLs to scrape real data (requires LinkedIn credentials in .env)</p>
+    </div>
+    <div style="flex: 2; display: flex; gap: 0.5rem; align-items: flex-start;">
+        <textarea id="linkedinUrls" placeholder="https://linkedin.com/in/person-one
+https://linkedin.com/in/person-two
+..." style="flex: 1; padding: 0.5rem; border-radius: 8px; border: 1px solid var(--gray-300); min-height: 80px; font-family: monospace; font-size: 0.875rem;"></textarea>
+        <button class="btn btn-primary" onclick="runRealPipeline()" style="white-space: nowrap;">
+            <span>🌐</span> Scrape & Generate
+        </button>
+    </div>
+</div>
+
+<!-- Results -->
+{% if results %}
+<div class="results-header">
+    <h2>Generated Messages</h2>
+    <span style="color: var(--gray-500); font-size: 0.875rem;">{{ results|length }} prospects ready for review</span>
+</div>
+
+<div class="card-grid" id="resultsGrid">
+    {% for result in results %}
+    <div class="prospect-card" data-id="{{ result.prospect.id }}">
+        <div class="card-header">
+            <div class="card-header-info">
+                <h3>{{ result.prospect.first_name }} {{ result.prospect.last_name }}</h3>
+                <p>{{ result.prospect.title }} at {{ result.prospect.company.name }}</p>
+            </div>
+            <span class="card-status status-{{ result.status.value }}">{{ result.status.value.replace('_', ' ') }}</span>
+        </div>
+        
+        <div class="card-body">
+            <div class="card-section">
+                <div class="card-section-label">Pain Signals Detected</div>
+                <div class="pain-tags">
+                    {% for pain in result.prospect.pain_signals %}
+                    <span class="pain-tag">{{ pain }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="card-section">
+                <div class="card-section-label">Referenced Activity</div>
+                <div class="card-section-content" style="font-style: italic; color: var(--gray-500);">
+                    "{{ result.message.referenced_activity[:140] }}{% if result.message.referenced_activity|length > 140 %}...{% endif %}"
+                </div>
+            </div>
+            
+            {% if result.prospect.company.recent_news %}
+            <div class="card-section">
+                <div class="card-section-label">Company News Found</div>
+                <div class="card-section-content">
+                    {% for news in result.prospect.company.recent_news %}
+                    <div style="font-size: 0.8rem; color: var(--gray-600); margin-bottom: 0.25rem;">• {{ news[:100] }}{% if news|length > 100 %}...{% endif %}</div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            
+            <div class="card-section">
+                <div class="card-section-label">Generated Message</div>
+                <div class="message-box">
+                    {{ result.message.full_message }}
+                </div>
+            </div>
+            
+            <div class="card-section">
+                <div class="card-section-label">VoiceCare Angle</div>
+                <div class="card-section-content">
+                    <span class="value-tag">{{ result.message.voicecare_angle[:80] }}{% if result.message.voicecare_angle|length > 80 %}...{% endif %}</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card-footer">
+            <span class="confidence {% if result.message.confidence_score >= 0.8 %}confidence-high{% else %}confidence-medium{% endif %}">
+                Confidence: {{ "%d" | format(result.message.confidence_score * 100) }}%
+            </span>
+            <div class="btn-group">
+                <button class="btn btn-success btn-sm" onclick="updateStatus('{{ result.prospect.id }}', 'approved')">✓ Approve</button>
+                <button class="btn btn-secondary btn-sm" onclick="updateStatus('{{ result.prospect.id }}', 'passed')">✕ Pass</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="empty-state">
+    <div class="empty-state-icon">🤖</div>
+    <h3>No Prospects Yet</h3>
+    <p>Click "Run with Demo Data" to generate from mock profiles, or paste real LinkedIn URLs above.</p>
+    <button class="btn btn-primary" onclick="runPipeline()">
+        <span>⚡</span> Run with Demo Data
+    </button>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+function showToast(message, isError = false) {
+    const toast = document.getElementById('toast');
+    toast.querySelector('#toastMessage').textContent = message;
+    toast.className = 'toast ' + (isError ? 'toast-error' : 'toast-success') + ' show';
+    setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+function setLoading(active) {
+    const overlay = document.getElementById('loadingOverlay');
+    if (active) overlay.classList.add('active');
+    else overlay.classList.remove('active');
+}
+
+async function runPipeline() {
+    setLoading(true);
+    try {
+        const formData = new FormData();
+        formData.append('max_leads', '5');
+        formData.append('use_demo', 'true');
+        
+        const response = await fetch('/api/run', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            showToast(`Generated ${data.generated} personalized messages!`);
+            setTimeout(() => window.location.reload(), 800);
+        } else {
+            showToast(data.error || 'Something went wrong', true);
+        }
+    } catch (err) {
+        showToast(err.message, true);
+    } finally {
+        setLoading(false);
+    }
+}
+
+async function runRealPipeline() {
+    const urlsText = document.getElementById('linkedinUrls').value.trim();
+    if (!urlsText) {
+        showToast('Please enter at least one LinkedIn URL', true);
+        return;
+    }
+    
+    const urls = urlsText.split('\n').map(u => u.trim()).filter(u => u);
+    if (urls.length === 0) {
+        showToast('Please enter valid LinkedIn URLs', true);
+        return;
+    }
+    
+    setLoading(true);
+    try {
+        const formData = new FormData();
+        urls.forEach(url => formData.append('urls', url));
+        formData.append('max_leads', String(Math.min(urls.length, 5)));
+        
+        const response = await fetch('/api/run-real', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            showToast(`Scraped ${data.generated} real profiles and generated messages!`);
+            setTimeout(() => window.location.reload(), 800);
+        } else {
+            showToast(data.error || 'Something went wrong', true);
+        }
+    } catch (err) {
+        showToast(err.message, true);
+    } finally {
+        setLoading(false);
+    }
+}
+
+async function updateStatus(prospectId, status) {
+    try {
+        const formData = new FormData();
+        formData.append('status', status);
+        
+        const response = await fetch(`/api/status/${prospectId}`, {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            showToast(`Status updated to ${status}`);
+            const card = document.querySelector(`[data-id="${prospectId}"]`);
+            if (card) {
+                const badge = card.querySelector('.card-status');
+                badge.className = `card-status status-${status}`;
+                badge.textContent = status;
+            }
+        } else {
+            showToast(data.error || 'Update failed', true);
+        }
+    } catch (err) {
+        showToast(err.message, true);
+    }
+}
+</script>
+{% endblock %}

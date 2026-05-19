@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}VoiceCare AI Lead Agent{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">V</div>
+                <div class="logo-text">
+                    <h1>VoiceCare AI</h1>
+                    <span>Lead Personalization Agent</span>
+                </div>
+            </div>
+            <div class="header-badges">
+                {% if gemini_ready %}
+                <span class="badge badge-success">● Gemini Ready</span>
+                {% else %}
+                <span class="badge badge-warning">● Template Mode</span>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Generating personalized outreach...</p>
+    </div>
+
+    <div class="toast toast-success" id="toast">
+        <span id="toastMessage">Success</span>
+    </div>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

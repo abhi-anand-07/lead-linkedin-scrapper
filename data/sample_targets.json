@@ -1,0 +1,123 @@
+[
+  {
+    "first_name": "Sarah",
+    "last_name": "Chen",
+    "title": "Revenue Cycle Director",
+    "company": {
+      "name": "Pacific Orthopedics Group",
+      "industry": "Healthcare",
+      "size": "200-500",
+      "location": "San Diego, CA"
+    },
+    "linkedin_url": "https://linkedin.com/in/sarah-chen-rcm",
+    "email": "s.chen@pacificortho.example",
+    "activities": [
+      {
+        "activity_type": "post",
+        "content": "Just wrapped our quarterly audit. 23% increase in claim denials due to prior auth lapses. We need better systems, not more bodies.",
+        "date": "2025-05-15T09:30:00",
+        "engagement_score": 45
+      },
+      {
+        "activity_type": "comment",
+        "content": "Same here. Our billing team is drowning in payer portal work. Anyone found a real solution?",
+        "date": "2025-05-12T14:22:00"
+      }
+    ]
+  },
+  {
+    "first_name": "Marcus",
+    "last_name": "Williams",
+    "title": "Practice Manager",
+    "company": {
+      "name": "Summit Neurology Associates",
+      "industry": "Healthcare",
+      "size": "50-200",
+      "location": "Denver, CO"
+    },
+    "linkedin_url": "https://linkedin.com/in/marcus-williams-pm",
+    "activities": [
+      {
+        "activity_type": "post",
+        "content": "Excited to announce our 3rd location opening in Q3! Now the hard part: scaling ops without breaking our team's spirit.",
+        "date": "2025-05-16T08:15:00",
+        "engagement_score": 67
+      },
+      {
+        "activity_type": "article",
+        "content": "Shared: 'The Hidden Cost of Admin Burnout in Specialty Practices'",
+        "date": "2025-05-09T11:00:00"
+      }
+    ]
+  },
+  {
+    "first_name": "Jennifer",
+    "last_name": "Patel",
+    "title": "Billing Manager",
+    "company": {
+      "name": "Metro Pediatrics",
+      "industry": "Healthcare",
+      "size": "100-500",
+      "location": "Austin, TX"
+    },
+    "linkedin_url": "https://linkedin.com/in/jennifer-patel-billing",
+    "activities": [
+      {
+        "activity_type": "post",
+        "content": "Hiring freeze just extended through Q4. Time to get creative with automation. Looking at RCM tools — what actually works?",
+        "date": "2025-05-14T10:45:00",
+        "engagement_score": 82
+      }
+    ]
+  },
+  {
+    "first_name": "David",
+    "last_name": "Rodriguez",
+    "title": "Operations Manager",
+    "company": {
+      "name": "Coastal Surgery Center",
+      "industry": "Healthcare",
+      "size": "50-200",
+      "location": "Miami, FL"
+    },
+    "linkedin_url": "https://linkedin.com/in/david-rodriguez-ops",
+    "activities": [
+      {
+        "activity_type": "job_change",
+        "content": "Started new position as Operations Manager at Coastal Surgery Center",
+        "date": "2025-05-03T09:00:00"
+      },
+      {
+        "activity_type": "post",
+        "content": "Day 1 priority: understanding why our prior auth turnaround is 3x the national average. This is fixable.",
+        "date": "2025-05-07T16:20:00",
+        "engagement_score": 34
+      }
+    ]
+  },
+  {
+    "first_name": "Amanda",
+    "last_name": "Thompson",
+    "title": "Revenue Cycle Manager",
+    "company": {
+      "name": "Heartland Family Medicine",
+      "industry": "Healthcare",
+      "size": "500-1000",
+      "location": "Omaha, NE"
+    },
+    "linkedin_url": "https://linkedin.com/in/amanda-thompson-rcm",
+    "activities": [
+      {
+        "activity_type": "comment",
+        "content": "The fax machine is still the primary interface with 40% of our payers in 2025. This is absurd.",
+        "date": "2025-05-13T13:10:00"
+      },
+      {
+        "activity_type": "post",
+        "content": "Just lost another experienced biller to burnout. 18 years of institutional knowledge walking out the door.",
+        "date": "2025-05-11T09:00:00",
+        "engagement_score": 91
+      }
+    ]
+  }
+]

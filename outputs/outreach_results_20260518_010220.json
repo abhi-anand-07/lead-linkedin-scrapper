@@ -1,0 +1,176 @@
+[
+  {
+    "prospect": {
+      "id": "20260518_010203",
+      "first_name": "Sarah",
+      "last_name": "Chen",
+      "title": "Revenue Cycle Director",
+      "company": {
+        "name": "Pacific Orthopedics Group",
+        "industry": "Healthcare",
+        "size": "200-500",
+        "location": null,
+        "website": null,
+        "recent_news": [
+          "It appears there is no single, prominent national healthcare company operating under the exact name \"**Pacific Orthopedics Group**.\"",
+          "Several highly reputable, independent orthopedic practices in the western United States share similar names, which may be the source of your inquiry. Below is a summary of news and developments for these organizations as of 2025\u20132026:",
+          "### Key Orthopedic Groups with Similar Names"
+        ]
+      },
+      "linkedin_url": "https://linkedin.com/in/sarah-chen",
+      "email": null,
+      "activities": [
+        {
+          "activity_type": "post",
+          "content": "Just wrapped our quarterly audit. 23% increase in claim denials due to prior auth lapses. We need better systems, not more bodies.",
+          "date": "2026-05-16T01:01:59.932624",
+          "url": null,
+          "engagement_score": null
+        },
+        {
+          "activity_type": "comment",
+          "content": "Same here. Our billing team is drowning in payer portal work. Anyone found a real solution?",
+          "date": "2026-05-13T01:01:59.932634",
+          "url": null,
+          "engagement_score": null
+        }
+      ],
+      "pain_signals": [
+        "claim denials",
+        "prior authorization delays"
+      ],
+      "status": "discovered",
+      "created_at": "2026-05-18 01:02:03.147953",
+      "last_updated": "2026-05-18 01:02:03.147953"
+    },
+    "message": {
+      "prospect_id": "20260518_010203",
+      "hook": "Sarah, that 23% jump in denials post-audit sounds incredibly frustrating to manage.",
+      "body": "It\u2019s a tough spot when your team is already stretched thin. Our AI agent, Joy, helps scale RCM operations without needing to add headcount, specifically tackling those prior auth lapses. Do you feel like your current denial management workflows are hitting a ceiling?",
+      "full_message": "Sarah, that 23% jump in denials post-audit sounds incredibly frustrating to manage. It\u2019s a tough spot when your team is already stretched thin. Our AI agent, Joy, helps scale RCM operations without needing to add headcount, specifically tackling those prior auth lapses. Do you feel like your current denial managemen...",
+      "referenced_activity": "Just wrapped our quarterly audit. 23% increase in claim denials due to prior auth lapses. We need better systems, not mo...",
+      "voicecare_angle": "Scale revenue cycle operations without scaling headcount linearly",
+      "confidence_score": 1.0,
+      "generated_at": "2026-05-18 01:02:08.376361",
+      "review_notes": null
+    },
+    "status": "pending_review",
+    "generated_at": "2026-05-18T01:02:08.376361"
+  },
+  {
+    "prospect": {
+      "id": "20260518_010203",
+      "first_name": "Priya",
+      "last_name": "Sharma",
+      "title": "Operations Director",
+      "company": {
+        "name": "Austin Women's Health",
+        "industry": "Healthcare",
+        "size": "100-400",
+        "location": null,
+        "website": null,
+        "recent_news": [
+          "In the Austin, Texas area, the landscape of women's healthcare is currently defined by both the continued operations of established private practices and significant new infrastructure developments.",
+          "It is important to clarify that **\"Austin Women's Health\"** (or *Austin Women's Health Center*) is a long-standing, physician-owned reproductive and gynecological healthcare clinic in Austin. It is distinct from other entities like *Aspira Women's Health* or the new *Ascension Seton Women's Hospital*.",
+          "Here are the recent developments as of May 2026:"
+        ]
+      },
+      "linkedin_url": "https://linkedin.com/in/priya-sharma",
+      "email": null,
+      "activities": [
+        {
+          "activity_type": "post",
+          "content": "Quarterly numbers are in: A/R days outstanding increased from 42 to 58. CFO wants answers. I want solutions that don't require 3 new hires.",
+          "date": "2026-05-17T01:01:59.932660",
+          "url": null,
+          "engagement_score": null
+        },
+        {
+          "activity_type": "comment",
+          "content": "We're seeing more denials for 'lack of medical necessity' even though documentation is complete. Payers are getting more aggressive.",
+          "date": "2026-05-14T01:01:59.932661",
+          "url": null,
+          "engagement_score": null
+        }
+      ],
+      "pain_signals": [
+        "claim denials",
+        "payer portal issues"
+      ],
+      "status": "discovered",
+      "created_at": "2026-05-18 01:02:03.147964",
+      "last_updated": "2026-05-18 01:02:03.147965"
+    },
+    "message": {
+      "prospect_id": "20260518_010203",
+      "hook": "Priya, that point you made about 'lack of medical necessity' denials despite perfect documentation is spot on.",
+      "body": "It\u2019s frustrating to see payers tighten the screws like that, especially as Austin Women\u2019s Health scales. Our AI, Joy, handles those tedious hold times to resolve these denials faster.",
+      "full_message": "Priya, that point you made about 'lack of medical necessity' denials despite perfect documentation is spot on. It\u2019s frustrating to see payers tighten the screws like that, especially as Austin Women\u2019s Health scales. Joy handles those tedious hold times for you. Do you track denial trends?",
+      "referenced_activity": "We're seeing more denials for 'lack of medical necessity' even though documentation is complete. Payers are getting more...",
+      "voicecare_angle": "Remove the most tedious part of RCM \u2014 hours on hold with payers",
+      "confidence_score": 1.0,
+      "generated_at": "2026-05-18 01:02:14.413730",
+      "review_notes": null
+    },
+    "status": "pending_review",
+    "generated_at": "2026-05-18T01:02:14.413730"
+  },
+  {
+    "prospect": {
+      "id": "20260518_010203",
+      "first_name": "Thomas",
+      "last_name": "Harris",
+      "title": "RCM Consultant",
+      "company": {
+        "name": "Harris Healthcare Advisors",
+        "industry": "Healthcare Consulting",
+        "size": "10-50",
+        "location": null,
+        "website": null,
+        "recent_news": [
+          "To provide you with the most accurate information, it is important to clarify that there are several distinct entities often referred to by similar names in the healthcare sector. Based on your request for \"Harris Healthcare Advisors,\" here is the status of the relevant organizations as of 2026.",
+          "### 1. Harris Healthcare (The Software/IT Provider)",
+          "This is the most prominent company operating under the \"Harris Healthcare\" name. It is a large, established business unit of **Harris Computer** (a subsidiary of Constellation Software)."
+        ]
+      },
+      "linkedin_url": "https://linkedin.com/in/thomas-harris",
+      "email": null,
+      "activities": [
+        {
+          "activity_type": "post",
+          "content": "After auditing 40 practices this year, the #1 pattern is clear: practices grow to 3-4 locations and their RCM completely breaks. No systems, just heroic effort.",
+          "date": "2026-05-16T01:01:59.932662",
+          "url": null,
+          "engagement_score": null
+        },
+        {
+          "activity_type": "article",
+          "content": "Published: 'The $2M RCM Mistake Every Growing Practice Makes'",
+          "date": "2026-05-09T01:01:59.932663",
+          "url": null,
+          "engagement_score": null
+        }
+      ],
+      "pain_signals": [
+        "growth scaling",
+        "high admin burden"
+      ],
+      "status": "discovered",
+      "created_at": "2026-05-18 01:02:03.147972",
+      "last_updated": "2026-05-18 01:02:03.147973"
+    },
+    "message": {
+      "prospect_id": "20260518_010203",
+      "hook": "Your recent post about the scaling wall hit home\u2014it's wild how RCM processes break down once a practice hits that 3-4 location mark.",
+      "body": "Thomas, Joy, our AI, is helping practices remove the most tedious part of that growth by handling those endless hours on hold with payers. Do you find the admin burden is the biggest hurdle for your clients right now?",
+      "full_message": "Your recent post about the scaling wall hit home\u2014it's wild how RCM processes break down once a practice hits that 3-4 location mark. Thomas, Joy, our AI, is helping practices remove the most tedious part of that growth by handling those endless hours on hold with payers. Do you find the admin burden is the biggest h...",
+      "referenced_activity": "After auditing 40 practices this year, the #1 pattern is clear: practices grow to 3-4 locations and their RCM completely...",
+      "voicecare_angle": "Remove the most tedious part of RCM \u2014 hours on hold with payers",
+      "confidence_score": 1.0,
+      "generated_at": "2026-05-18 01:02:20.779310",
+      "review_notes": null
+    },
+    "status": "pending_review",
+    "generated_at": "2026-05-18T01:02:20.779310"
+  }
+]
