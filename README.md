@@ -1,8 +1,5 @@
-# 🎯 VoiceCare AI — Scalable Lead Personalization Agent
 
-> **Assignment:** Build an agent that researches and contacts healthcare prospects at scale without sounding like a bot.
-
-## What's New in v2.0
+Lead Linkedin Scrapper + Emailer
 
 ✅ **Web UI Dashboard** — Clean FastAPI interface with real-time results  
 ✅ **Gemini 2.0 Flash Lite** — Google's fast, cost-efficient LLM for message generation  
@@ -281,7 +278,3 @@ LLMs are great but unpredictable in interviews. The template system:
 4. **Show the architecture** — the 4-layer pipeline + web UI
 5. **Emphasize Gemini** — mention why you chose Flash Lite (speed + cost)
 6. **Show compliance** — Proxycurl + human review = enterprise-ready
-
----
-
-Built for VoiceCare AI interview assignment.
